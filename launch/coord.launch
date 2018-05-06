@@ -1,0 +1,17 @@
+<launch>
+	<!--Launch Multiple Arduino Nodes Here -->
+
+	<node pkg="coordinator" type="METeampublisherDoor.py" name="METeampublisherDoor" output="screen"/>
+	<node pkg="coordinator" type="finalversionDoor.py" name="finalversionDoor" output="screen"/>
+
+	<node pkg="coordinator" type="METeampublisherDrawer.py" name="METeampublisherDrawer" output="screen"/>
+	<node pkg="coordinator" type="finalversionDrawer.py" name="finalversionDrawer" output="screen"/>
+	
+	<!-- Open RQT and plot data -->
+	<!-- ADD IN THE REST OF THE TOPICS TO SUB TO HERE -->
+	<node name="pos_vel_plot" pkg="rqt_plot" type="rqt_plot" args="/arduino"/>
+
+	<node name="coordinator" type="IMU_and_Pressure_Sensors.py" name="Sensors" output="screen"/>
+
+	<!-- commented out /node -->
+</launch>

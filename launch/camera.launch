@@ -1,0 +1,15 @@
+<launch>	
+	<!-- Include camera -->
+	<include file="$(find realsense_camera)/launch/r200_nodelet_rgbd.launch"/>
+	
+	<!-- Include RVIZ -->
+	<node pkg="rviz" type="rviz" name="rviz"/>
+
+	<!-- Record Bag Files! THIS IS LAST -->
+	<node name="record" pkg="rosbag" type="record" args="/camera/rgb/image_raw/compressed /camera/depth/image_raw
+ /Press1 /Press2 /Press3 /Press4 /Press5 /Press6 /Press7 /Press8 /Press9 /Press10 /Press11 /Press12 /Pressure /X_accel /X_gyro /Y_gyro /Z_gyro /Y_accel /Z_accel  -O SpringFinalData.bag" />	
+
+        <!-- This records to /home/max/.ros -->
+
+	<!-- commented out /node -->
+</launch>
